@@ -1,4 +1,4 @@
-OWASP IoT Top 10: Quick Summary
+# OWASP IoT Top 10: Quick Summary
 1. Weak, Guessable, or Hardcoded Passwords: The device uses a terrible default password like "admin" that anyone can guess, and sometimes the manufacturer doesn't even let you change it.
 2. Insecure Network Services: The device leaves unnecessary digital doors wide open to the internet for hackers to walk right through.
 3. Insecure Ecosystem Interfaces: The device itself might be fine, but the mobile app or website you use to control it is totally unprotected.
