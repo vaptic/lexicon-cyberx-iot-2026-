@@ -2,36 +2,36 @@ Day 2 — Firmware Analysis: IoTGoat
 Date: 2026-03-23
 
 # Checklist
- Run file command on firmware
- Inspect magic bytes with hexdump
- Scan firmware with binwalk
- Extract firmware with binwalk -eM
- Navigate extracted filesystem
- Explore /etc directory
- Document findings
+1) Run file command on firmware
+2) Inspect magic bytes with hexdump
+3) Scan firmware with binwalk
+4) Extract firmware with binwalk -eM
+5) Navigate extracted filesystem
+6) Explore /etc directory
+7) Document findings
 
 # Commands Used
-bashfile IoTGoat-raspberry-pi2.img
-hexdump -C IoTGoat-raspberry-pi2.img | head -20
-binwalk IoTGoat-raspberry-pi2.img
-binwalk -eM IoTGoat-raspberry-pi2.img
-cd _IoTGoat-raspberry-pi2.img.extracted/squashfs-root
-ls -la
-cat etc/passwd
-cat etc/shadow
-cat etc/banner
-cat etc/device_info
+1. bashfile IoTGoat-raspberry-pi2.img
+2. hexdump -C IoTGoat-raspberry-pi2.img | head -20
+3. binwalk IoTGoat-raspberry-pi2.img
+4. binwalk -eM IoTGoat-raspberry-pi2.img
+5. cd _IoTGoat-raspberry-pi2.img.extracted/squashfs-root
+6. ls -la
+7. cat etc/passwd
+8. cat etc/shadow
+9. cat etc/banner
+10. cat etc/device_info
 
 # Key Findings
 
-Firmware is OpenWRT based — OWRT signature found at offset 0x1b0
-Squashfs filesystem extracted successfully at offset 0x1C00000
-4 hardcoded X.509 certificates found embedded in firmware
-Two user accounts found — root and iotgoatuser
-Both passwords hashed with weak MD5crypt ($1$) — crackable
-No firewall rules configured — running on defaults
-Banner reveals device identity on SSH login
-DEVICE_REVISION='v0' — never updated
+1. Firmware is OpenWRT based — OWRT signature found at offset 0x1b0
+2. Squashfs filesystem extracted successfully at offset 0x1C00000
+3. 4 hardcoded X.509 certificates found embedded in firmware
+4. Two user accounts found — root and iotgoatuser
+5. Both passwords hashed with weak MD5crypt ($1$) — crackable
+6. No firewall rules configured — running on defaults
+7. Banner reveals device identity on SSH login
+8. DEVICE_REVISION='v0' — never updated
 
 
 # IoT Top 10 Violations Found
@@ -41,7 +41,7 @@ I7 — Insecure storageHardcoded certificates in firmware
 I9 — Insecure defaultsNo firewall rules, default config throughout
 
 # Tools Used
-file hexdump binwalk john cat
+file | hexdump | binwalk | john | cat
 
 
 # AI Tool Task
