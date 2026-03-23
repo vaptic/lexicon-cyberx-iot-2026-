@@ -9,8 +9,8 @@ Date: 2026-03-23
  Navigate extracted filesystem
  Explore /etc directory
  Document findings
----------------------------------
-3 Commands Used
+
+# Commands Used
 bashfile IoTGoat-raspberry-pi2.img
 hexdump -C IoTGoat-raspberry-pi2.img | head -20
 binwalk IoTGoat-raspberry-pi2.img
@@ -21,7 +21,7 @@ cat etc/passwd
 cat etc/shadow
 cat etc/banner
 cat etc/device_info
------------------------------------
+
 # Key Findings
 
 Firmware is OpenWRT based — OWRT signature found at offset 0x1b0
@@ -32,17 +32,17 @@ Both passwords hashed with weak MD5crypt ($1$) — crackable
 No firewall rules configured — running on defaults
 Banner reveals device identity on SSH login
 DEVICE_REVISION='v0' — never updated
-----------------------------------------
+
 
 # IoT Top 10 Violations Found
 I1 — Weak credentialsMD5crypt hashes in /etc/shadow
 I5 — Outdated componentsDEVICE_REVISION='v0'
 I7 — Insecure storageHardcoded certificates in firmware
 I9 — Insecure defaultsNo firewall rules, default config throughout
----------------------------------------------
-Tools Used
+
+# Tools Used
 file hexdump binwalk john cat
-------------------------------------------
+
 
 # AI Tool Task
 # What is SquashFS?
