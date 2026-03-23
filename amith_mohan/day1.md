@@ -87,11 +87,6 @@ Explored a tool in the Kali Linux menu:
 
 These will be used in upcoming labs for firmware analysis and exploitation.
 
----------------------------------------------------------------
-
-## 🖼 Screenshot
-
-(Attach screenshot of terminal showing tool version outputs here)
 
 ---------------------------------------------------------------
 
