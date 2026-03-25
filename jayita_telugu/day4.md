@@ -1,177 +1,234 @@
+
+# Day 4 — Firmware Extraction with Binwalk 🔍
+**Phase 2: Firmware Analysis | 30% Theory / 70% Practical**
+
+---
+
+## 🧭 Overview
+
+Today we cracked open a real (intentionally vulnerable) router firmware — **DVRF v03** (Damn Vulnerable Router Firmware) by Praetorian Inc. The goal was to extract it, map its filesystem, and start identifying where the vulnerabilities live.
+
+Spoiler: it wasn't as straightforward as the lab expected. And that's kind of the point.
+
+---
+
+## ⚙️ Environment Setup
+
+- **Tool:** Binwalk on Kali Linux (VirtualBox VM)
+- **Target:** `DVRF_v03.bin`
+- **Source:** [https://github.com/praetorian-inc/DVRF](https://github.com/praetorian-inc/DVRF)
+
+> 💡 **Note:** DVRF is now archived on GitHub — no longer actively maintained. This explains some of the missing components we'll talk about later.
+
+---
+
+## 📋 Step-by-Step Findings
+
+### Step 1 — Navigate to DVRF Directory
+```bash
+cd ~/Downloads/DVRF/Firmware
+```
+Simple enough — but we had to clone the repo first since the folder didn't exist:
+```bash
+git clone https://github.com/praetorian-inc/DVRF.git
+```
+The clone threw some errors about spaces in filenames (`Source Code/`) but the important stuff — the `.bin` file — came through fine.
+
+---
+
+### Step 2 — Architecture Scan
+```bash
+binwalk -A DVRF_v03.bin
+```
+
+**Expected:** MIPS  
+**Actual finding:** ARM 👀
+
+| Decimal | Hexadecimal | Description |
+|---------|-------------|-------------|
+| 2089227 | 0x1FE00B | ARMEB instructions, function prologue |
+| 3948573 | 0x3C401D | ARM instructions, function prologue |
+
+> This was the first surprise of the day. The lab said MIPS but the firmware is actually ARM (both big and little endian). This matters for later when emulating or running the binaries — you'd need the right QEMU target.
+
+---
+
+### Step 3 — Full Recursive Extraction
+```bash
+binwalk -eM DVRF_v03.bin
+```
+
+The `-M` flag is crucial here — firmware often has compressed archives **inside** archives (like Russian dolls). Binwalk recurses into each one.
+
+> ⚠️ **Real talk:** This step failed twice because the VM ran out of disk space (only had 19GB allocated). Had to resize the VM disk from 20GB → 50GB using VBoxManage + GParted Live ISO before this worked. Always allocate enough disk space before starting firmware analysis!
+
+The extraction produced a lot of symlink warnings — these are normal. Binwalk redirects dangerous symlinks (ones pointing outside the extraction directory) to `/dev/null` for security.
+
+---
+
+### Step 4 — List Extracted Contents
+```bash
+ls -R ~/Downloads/DVRF/Firmware/_DVRF_v03.bin.extracted/ | head -50
+```
+
+Confirmed extraction worked. Found the main extracted file and the `squashfs-root` directory.
+
+---
+
+### Step 5 — Found squashfs-root 🎯
+```bash
+ls ~/Downloads/DVRF/Firmware/_DVRF_v03.bin.extracted/squashfs-root/
+```
+
+**Output:**
+```
+bin  dev  etc  lib  mnt  proc  pwnable  sbin  tmp  usr  var  www
+```
+
+This is the **actual router filesystem** — everything the router runs is right here.
+
+---
+
+### Step 6 — Map the Entire Filesystem
+```bash
+find ~/Downloads/DVRF/Firmware/_DVRF_v03.bin.extracted/squashfs-root/ -type f > filesystem-tree.txt
+```
+
+Also ran a visual tree:
+```bash
+tree ~/Downloads/DVRF/Firmware/_DVRF_v03.bin.extracted/squashfs-root/
+```
+
+**Result: 56 directories, 391 files**
+
+That's the entire brain of this router, sitting right on disk.
+
+---
+
+### Step 7 — Count Files by Type
+```bash
+grep -E '\.sh$' filesystem-tree.txt | wc -l
+grep -E '\.conf$' filesystem-tree.txt | wc -l
+```
+
+| File Type | Count |
+|-----------|-------|
+| Shell scripts (`.sh`) | 2 |
+| Config files (`.conf`) | 3 |
+
+> Minimal numbers — expected for an intentionally stripped-down firmware.
+
+---
+
+### Step 8 — Web Interface Analysis
+```bash
+ls ~/Downloads/DVRF/Firmware/_DVRF_v03.bin.extracted/squashfs-root/www/
+```
+
+Only one file: `index.asp` — no `.cgi` files visible at first glance.
+
+But looking **inside** `index.asp`:
+```bash
+cat ~/Downloads/DVRF/Firmware/_DVRF_v03.bin.extracted/squashfs-root/www/index.asp
+```
+
+Found a hidden gem:
+```html
+action="upgrade.cgi"
+```
+
+> 🔥 **Finding:** `upgrade.cgi` is a firmware upload script referenced inside `index.asp`. This is a classic high-value attack target — firmware upload endpoints are notorious for command injection and buffer overflows. Real-world router exploits often start exactly here.
+
+---
+
+### Step 9 — Startup Scripts (init.d)
+```bash
+ls ~/Downloads/DVRF/Firmware/_DVRF_v03.bin.extracted/squashfs-root/etc/init.d/
+```
+
+**Result:** No `init.d` directory found in the firmware.
+
+> 📝 **Observation:** DVRF is a minimal archived firmware — it was never meant to be a full router OS. It doesn't have traditional init scripts because it's stripped down to just demonstrate vulnerabilities. Real router firmware would have many init.d scripts launching services like telnet daemons, web servers, etc.
+
+---
+
+### Step 10 — The Pwnable Directory 💀
+Since there's no init.d, we explored what makes DVRF unique — the `/pwnable` directory:
+```bash
+ls ~/Downloads/DVRF/Firmware/_DVRF_v03.bin.extracted/squashfs-root/pwnable/
+```
+
+This is where the intentionally vulnerable binaries live — stack buffer overflows, format string bugs, heap overflows. This is what Days 5-7 will focus on.
+
+---
+
 [filesystem-tree.txt](https://github.com/user-attachments/files/26238800/filesystem-tree.txt)
 
-## IoT Router Firmware Vulnerability Analysis
+## 🤖 AI Task — Filesystem Vulnerability Analysis
 
-I analyzed the extracted filesystem of an IoT router firmware to identify high-risk areas that are most likely to contain vulnerabilities. Based on the structure and components present, the firmware exposes multiple attack surfaces typical of embedded Linux devices.
+**Prompt used:**
+> "Based on this IoT router filesystem, which directories and file types are most likely to contain security vulnerabilities? Explain each."
 
-### Key Observations
+### Key Findings from Analysis:
 
-The firmware is built on an older Linux kernel (2.6.x) and includes a mix of:
+| Attack Surface | Location | Risk |
+|---------------|----------|------|
+| Web Interface | `/www` | Command injection, auth bypass |
+| Network Services | `/usr/sbin` | Buffer overflows, RCE |
+| Shared Libraries | `/lib`, `/usr/lib` | Memory corruption |
+| Auth Utilities | `smbd`, `smbpasswd` | Hardcoded credentials |
+| Kernel Modules | `/lib/modules` | Full system compromise |
+| Shell Scripts | `*.sh` files | Command injection |
+| Debug Binaries | `/pwnable` | Intentional overflows |
+| Config Files | `/etc` | Info disclosure |
 
-* Web interface files
-* Network-facing services
-* Vendor-specific shared libraries
-* Kernel modules
-* Shell scripts and system utilities
+### Likely Attack Path:
+```
+Web interface (HTTP)
+    → Command injection / input validation flaw
+        → Shell on device
+            → NVRAM / service persistence
+                → Kernel privilege escalation
+```
 
-This combination significantly increases the attack surface, especially due to outdated components and custom code.
+### Conclusion from AI:
+The most critical entry point is the **web interface**, followed by **network services** and **shared libraries**. The firmware runs an outdated Linux 2.6.x kernel which increases exposure to known CVEs.
 
----
-
-## High-Risk Areas
-
-### 1. Web Interface (`/www`)
-
-The presence of files like `index.asp` suggests a web-based admin panel served by `httpd`.
-
-* Likely vulnerable to:
-
-  * Command injection
-  * Authentication bypass
-  * Input validation issues
-* This is typically the primary entry point since it is exposed over HTTP.
-
----
-
-### 2. Network Services (`/usr/sbin`)
-
-Several critical services are present, including:
-
-* `httpd`, `dnsmasq`, `dhcpd`, `tftpd`, `pppd`
-
-These services process untrusted network input and are common sources of:
-
-* Buffer overflows
-* Remote code execution (RCE)
-* Denial-of-service vulnerabilities
+### Future Work Identified:
+- Static analysis on `httpd` and `libnvram.so`
+- Emulate firmware using QEMU for dynamic testing
+- Fuzz `dnsmasq` and `pppd`
+- Map known CVEs to included components
 
 ---
 
-### 3. Shared Libraries (`/lib`, `/usr/lib`)
+## 🎯 Summary of Findings
 
-Libraries such as:
-
-* `libnvram.so`, `libshared.so`, `libnetconf.so`
-
-are widely used across the system.
-
-* A single vulnerability here can affect multiple binaries
-* Vendor-specific libraries are often poorly audited
-* Common issues include memory corruption and unsafe string handling
-
----
-
-### 4. Authentication & System Utilities
-
-Components like:
-
-* `smbd`, `smbpasswd`, and user management binaries
-
-handle credentials and permissions.
-
-* Potential risks:
-
-  * Privilege escalation
-  * Weak authentication mechanisms
-  * Hardcoded credentials
+| # | Finding | Significance |
+|---|---------|-------------|
+| 1 | Architecture is ARM, not MIPS | Changes emulation approach |
+| 2 | 56 dirs, 391 files extracted | Full filesystem accessible |
+| 3 | `upgrade.cgi` referenced in `index.asp` | High-value attack target |
+| 4 | No `init.d` — minimal firmware | DVRF is stripped by design |
+| 5 | `/pwnable` directory present | Intentional vuln playground |
+| 6 | Only 2 shell scripts, 3 config files | Minimal attack surface by design |
 
 ---
 
-### 5. Kernel Modules (`/lib/modules`)
-
-The firmware includes multiple `.ko` modules running in kernel space.
-
-* Any vulnerability here leads to full system compromise
-* The outdated kernel version increases the likelihood of known exploits
-
----
-
-### 6. Shell Scripts
-
-Scripts such as:
-
-* `check_http.sh`, `rotatelog.sh`
-
-are used for system operations.
-
-* Often vulnerable to command injection due to poor input sanitization
+## 🛠️ Tools Used
+- Kali Linux VM (VirtualBox)
+- Binwalk
+- GParted Live (for VM disk resize)
+- tree, find, grep
+- ChatGPT (AI filesystem analysis)
 
 ---
 
-### 7. BusyBox and Core Binaries
-
-The system relies on BusyBox and custom binaries for core functionality.
-
-* Risks include:
-
-  * Unsafe system calls
-  * Buffer overflows in vendor tools
+## 📁 Files in this Commit
+- `day4.md` — this file
+- `filesystem-tree.txt` — complete file listing of squashfs-root
+- Screenshots of key steps
 
 ---
 
-### 8. Firewall Extensions (`iptables`)
-
-Numerous iptables modules are present.
-
-* These interact with network traffic and kernel space
-* Parsing or logic errors can lead to bypasses or crashes
-
----
-
-### 9. Debug / Pwnable Binaries
-
-A notable finding is the presence of a `/pwnable` directory containing binaries demonstrating:
-
-* Stack buffer overflows
-* Heap overflows
-* Use-after-free bugs
-
-These are likely intentionally vulnerable and could be exploited if accessible.
-
----
-
-### 10. Configuration Files (`/etc`)
-
-Configuration files define system behavior and may contain:
-
-* Credentials
-* Service settings
-* Debug configurations
-
-Misconfigurations can lead to information disclosure or insecure defaults.
-
----
-
-## Likely Attack Path
-
-A realistic exploitation scenario would be:
-
-1. Gain access via the web interface
-2. Exploit command injection or input validation flaws
-3. Obtain a shell on the device
-4. Leverage NVRAM or system services for persistence
-5. Optionally escalate privileges via kernel vulnerabilities
-
----
-
-## Conclusion
-
-This firmware demonstrates several common IoT security issues:
-
-* Outdated kernel and components
-* Large network-facing attack surface
-* Heavy reliance on vendor-specific, unaudited code
-* Weak input validation across services
-
-The most critical and likely entry point is the web interface, followed by network services and shared libraries.
-
----
-
-## Future Work
-
-* Perform static analysis on `httpd` and `libnvram.so`
-* Emulate the firmware using QEMU for dynamic testing
-* Fuzz exposed services like `dnsmasq` and `pppd`
-* Identify known CVEs affecting included components
-
----
+*Day 4 complete. Tomorrow we start actually exploiting these binaries. 🔓*
