@@ -1,3 +1,249 @@
+# 📅 Day 4 — Firmware Extraction with Binwalk (Deep Dive)
+
+## 🎯 Objective
+
+To extract and analyze the DVRF (Damn Vulnerable Router Firmware) image using Binwalk, identify its architecture, map its filesystem, and locate potential security vulnerabilities.
+
+---
+
+## 🧠 Theory Summary
+
+DVRF is an intentionally vulnerable router firmware designed for security learning. Firmware images contain the complete operating system of embedded devices, including binaries, configuration files, and web interfaces.
+
+Binwalk is a firmware analysis tool used to:
+
+* Identify embedded files and architectures
+* Extract filesystems from firmware images
+* Perform recursive extraction using the `-M` flag
+
+---
+
+## ⚙️ Tools Used
+
+* Kali Linux VM
+* Binwalk
+* DVRF_v03.bin firmware
+
+---
+
+## 🔧 Practical Steps
+
+### 1. Navigate to Firmware Directory
+
+```bash
+cd ~/Desktop/DVRF-master/Firmware/
+```
+
+---
+
+### 2. Identify Architecture
+
+```bash
+binwalk -A DVRF_v03.bin
+```
+
+📌 **Observation:**
+The firmware uses **ARM (ARMEB - Big Endian)** architecture.
+
+---
+
+### 3. Extract Firmware
+
+```bash
+binwalk -eM DVRF_v03.bin
+```
+
+📌 Extracted folder:
+
+```
+_DVRF_v03.bin.extracted/
+```
+
+---
+
+### 4. Explore Extracted Files
+
+```bash
+ls -R _DVRF_v03.bin.extracted/ | head -50
+```
+
+📌 Found:
+
+* SquashFS filesystem
+* Additional extracted components
+
+---
+
+### 5. Locate Root Filesystem
+
+```bash
+cd _DVRF_v03.bin.extracted
+ls
+```
+
+📌 Identified:
+
+```
+squashfs-root/
+```
+
+---
+
+### 6. Map Filesystem Structure
+
+```bash
+find squashfs-root/ -type f > filesystem-tree.txt
+```
+
+📌 This file contains all paths in the firmware.
+
+---
+
+### 7. Count File Types
+
+```bash
+grep -E '.sh$' filesystem-tree.txt | wc -l
+grep -E '.conf$' filesystem-tree.txt | wc -l
+```
+
+📌 Used to understand script and config density.
+
+---
+
+### 8. Analyze Web Interface
+
+```bash
+ls squashfs-root/www/
+```
+
+📌 Found:
+
+```
+index.asp
+```
+
+---
+
+### 9. Inspect Web File
+
+```bash
+cat squashfs-root/www/index.asp
+```
+
+📌 Observations:
+
+* Contains firmware upload form
+* References backend:
+
+```
+upgrade.cgi
+```
+
+---
+
+### 10. Search for Backend Logic
+
+```bash
+find squashfs-root/ -name "*.cgi"
+```
+
+📌 Result:
+
+* No CGI files found
+
+---
+
+## 🔍 Key Findings
+
+### 🔴 1. Missing Backend (upgrade.cgi)
+
+* Web interface references `upgrade.cgi`
+* No such file exists in filesystem
+* Likely handled internally or missing
+
+👉 Indicates poor or incomplete design
+
+---
+
+### 🔴 2. Weak Authentication Mechanism
+
+From `/etc`:
+
+* `passwd → /dev/null`
+* `shadow → /dev/null`
+
+👉 Authentication system is disabled or broken
+
+---
+
+### 🔴 3. Minimal Firmware Structure
+
+* No `/etc/init.d` directory
+* Reduced service management
+
+👉 Suggests stripped or intentionally vulnerable system
+
+---
+
+### 🔴 4. Presence of BusyBox
+
+From `/bin`:
+
+* BusyBox provides core utilities
+
+👉 If exploited:
+
+* Can lead to full command execution
+
+---
+
+### 🔴 5. Web Interface Attack Surface
+
+* `/www/index.asp` handles user interaction
+* Potential for:
+
+  * Input validation issues
+  * File upload exploitation
+
+---
+
+## 🚨 Security Implications
+
+* Authentication bypass possible
+* Hidden or missing backend logic
+* Potential for command execution via BusyBox
+* Web interface exposed as attack surface
+
+---
+
+## 🤖 AI Analysis
+
+### Q1: Vulnerable Directories
+
+* `/www` → Web scripts (input handling vulnerabilities)
+* `/etc` → Configuration files (credentials, system settings)
+* `/bin`, `/usr/bin` → Executables (memory vulnerabilities)
+* `/etc/init.d` → Startup scripts (service misconfigurations)
+
+---
+
+## 🎯 Conclusion
+
+This lab demonstrated how firmware can be extracted and analyzed to reveal internal system structure and vulnerabilities. The DVRF firmware showed multiple security weaknesses, including missing authentication mechanisms, incomplete backend implementation, and exposure of critical components such as BusyBox and web interface files.
+
+---
+
+## 🧠 Key Learning
+
+> Firmware analysis allows attackers to identify vulnerabilities offline, including weak authentication, hidden services, and insecure design.
+
+---
+
+
+
+---
+
+
 [filesystem-tree.txt](https://github.com/user-attachments/files/26237414/filesystem-tree.txt)
 
 ## 🔍 Vulnerable Directories and File Types in IoT Router Firmware
