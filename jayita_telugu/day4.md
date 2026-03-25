@@ -1,10 +1,29 @@
 
 # Day 4 — Firmware Extraction with Binwalk 🔍
-**Phase 2: Firmware Analysis | 30% Theory / 70% Practical**
+**Phase 2: Firmware Analysis 
 
+##  Theory — DVRF Structure & Binwalk Flags
+
+### What is DVRF?
+**Damn Vulnerable Router Firmware** — built by Praetorian Inc. as a learning tool. It mimics a real Linksys router but has intentional flaws baked in:
+- **Stack buffer overflows** — program writes more data than a buffer can hold, corrupts memory
+- **Format string bugs** — attacker controls format specifiers like `%x %s` to read/write memory
+- **Hardcoded credentials** — passwords literally written into the firmware code
+
+### Binwalk Flags
+
+| Flag | What it does | Why it matters |
+|------|-------------|----------------|
+| `-A` | Scans for CPU architecture | Tells you MIPS/ARM/x86 — needed for emulation later |
+| `-e` | Extracts files | Unpacks firmware contents |
+| `-M` | Recursive/matryoshka extraction | Firmware has archives inside archives — this digs through all of them |
+| `-W` | Hex compare multiple files | Spot differences between two firmware versions |
+| `-h` | Help/usage | Lists all available flags |
+
+>  Always run `man binwalk` to read the full manual. Navigate with `Space` (down), `b` (up), `q` (quit), `/keyword` (search).
 ---
 
-## 🧭 Overview
+##  Overview
 
 Today we cracked open a real (intentionally vulnerable) router firmware — **DVRF v03** (Damn Vulnerable Router Firmware) by Praetorian Inc. The goal was to extract it, map its filesystem, and start identifying where the vulnerabilities live.
 
@@ -12,17 +31,17 @@ Spoiler: it wasn't as straightforward as the lab expected. And that's kind of th
 
 ---
 
-## ⚙️ Environment Setup
+##  Environment Setup
 
 - **Tool:** Binwalk on Kali Linux (VirtualBox VM)
 - **Target:** `DVRF_v03.bin`
 - **Source:** [https://github.com/praetorian-inc/DVRF](https://github.com/praetorian-inc/DVRF)
 
-> 💡 **Note:** DVRF is now archived on GitHub — no longer actively maintained. This explains some of the missing components we'll talk about later.
+>  **Note:** DVRF is now archived on GitHub — no longer actively maintained. This explains some of the missing components we'll talk about later.
 
 ---
 
-## 📋 Step-by-Step Findings
+##  Step-by-Step Findings
 
 ### Step 1 — Navigate to DVRF Directory
 ```bash
@@ -60,7 +79,7 @@ binwalk -eM DVRF_v03.bin
 
 The `-M` flag is crucial here — firmware often has compressed archives **inside** archives (like Russian dolls). Binwalk recurses into each one.
 
-> ⚠️ **Real talk:** This step failed twice because the VM ran out of disk space (only had 19GB allocated). Had to resize the VM disk from 20GB → 50GB using VBoxManage + GParted Live ISO before this worked. Always allocate enough disk space before starting firmware analysis!
+>  **Real talk:** This step failed twice because the VM ran out of disk space (only had 19GB allocated). Had to resize the VM disk from 20GB → 50GB using VBoxManage + GParted Live ISO before this worked. Always allocate enough disk space before starting firmware analysis!
 
 The extraction produced a lot of symlink warnings — these are normal. Binwalk redirects dangerous symlinks (ones pointing outside the extraction directory) to `/dev/null` for security.
 
@@ -137,7 +156,7 @@ Found a hidden gem:
 action="upgrade.cgi"
 ```
 
-> 🔥 **Finding:** `upgrade.cgi` is a firmware upload script referenced inside `index.asp`. This is a classic high-value attack target — firmware upload endpoints are notorious for command injection and buffer overflows. Real-world router exploits often start exactly here.
+>  **Finding:** `upgrade.cgi` is a firmware upload script referenced inside `index.asp`. This is a classic high-value attack target — firmware upload endpoints are notorious for command injection and buffer overflows. Real-world router exploits often start exactly here.
 
 ---
 
@@ -148,7 +167,7 @@ ls ~/Downloads/DVRF/Firmware/_DVRF_v03.bin.extracted/squashfs-root/etc/init.d/
 
 **Result:** No `init.d` directory found in the firmware.
 
-> 📝 **Observation:** DVRF is a minimal archived firmware — it was never meant to be a full router OS. It doesn't have traditional init scripts because it's stripped down to just demonstrate vulnerabilities. Real router firmware would have many init.d scripts launching services like telnet daemons, web servers, etc.
+> **Observation:** DVRF is a minimal archived firmware — it was never meant to be a full router OS. It doesn't have traditional init scripts because it's stripped down to just demonstrate vulnerabilities. Real router firmware would have many init.d scripts launching services like telnet daemons, web servers, etc.
 
 ---
 
@@ -164,7 +183,7 @@ This is where the intentionally vulnerable binaries live — stack buffer overfl
 
 [filesystem-tree.txt](https://github.com/user-attachments/files/26238800/filesystem-tree.txt)
 
-## 🤖 AI Task — Filesystem Vulnerability Analysis
+## AI Task — Filesystem Vulnerability Analysis
 
 **Prompt used:**
 > "Based on this IoT router filesystem, which directories and file types are most likely to contain security vulnerabilities? Explain each."
@@ -202,7 +221,7 @@ The most critical entry point is the **web interface**, followed by **network se
 
 ---
 
-## 🎯 Summary of Findings
+##  Summary of Findings
 
 | # | Finding | Significance |
 |---|---------|-------------|
@@ -215,7 +234,7 @@ The most critical entry point is the **web interface**, followed by **network se
 
 ---
 
-## 🛠️ Tools Used
+##  Tools Used
 - Kali Linux VM (VirtualBox)
 - Binwalk
 - GParted Live (for VM disk resize)
