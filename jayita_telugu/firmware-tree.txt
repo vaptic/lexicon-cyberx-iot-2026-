@@ -1,0 +1,449 @@
+/home/jayita59/Downloads/DVRF/Firmware/_DVRF_v03.bin.extracted/squashfs-root/
+├── bin
+│   ├── addgroup -> busybox
+│   ├── adduser -> busybox
+│   ├── busybox
+│   ├── cat -> busybox
+│   ├── chgrp -> busybox
+│   ├── chmod -> busybox
+│   ├── chown -> busybox
+│   ├── cp -> busybox
+│   ├── delgroup -> busybox
+│   ├── deluser -> busybox
+│   ├── df -> busybox
+│   ├── dmesg -> busybox
+│   ├── eapd
+│   ├── echo -> busybox
+│   ├── egrep -> busybox
+│   ├── false -> busybox
+│   ├── fgrep -> busybox
+│   ├── grep -> busybox
+│   ├── kill -> busybox
+│   ├── ln -> busybox
+│   ├── login -> busybox
+│   ├── ls -> busybox
+│   ├── mkdir -> busybox
+│   ├── mknod -> busybox
+│   ├── more -> busybox
+│   ├── mount -> busybox
+│   ├── msh -> busybox
+│   ├── mv -> busybox
+│   ├── netstat -> busybox
+│   ├── ping -> busybox
+│   ├── ping6 -> busybox
+│   ├── ps -> busybox
+│   ├── pwd -> busybox
+│   ├── rm -> busybox
+│   ├── rmdir -> busybox
+│   ├── sh -> busybox
+│   ├── sleep -> busybox
+│   ├── su -> busybox
+│   ├── touch -> busybox
+│   ├── true -> busybox
+│   ├── umount -> busybox
+│   ├── uname -> busybox
+│   ├── usleep -> busybox
+│   ├── wipedisks
+│   └── wps_monitor
+├── dev
+├── etc
+│   ├── cron.d -> /dev/null
+│   ├── fdisk_fat32_claim_commands.txt
+│   ├── group -> /dev/null
+│   ├── gshadow -> /dev/null
+│   ├── hosts -> /dev/null
+│   ├── hotplug2.rules
+│   ├── ld.so.cache
+│   ├── ld.so.conf
+│   ├── lld2d.conf
+│   ├── lld2d.ico
+│   ├── passwd -> /dev/null
+│   ├── protocols
+│   ├── resolv.conf -> /dev/null
+│   ├── services
+│   ├── Services.txt
+│   ├── shadow -> /dev/null
+│   └── udev
+│       └── udev.conf
+├── lib
+│   ├── ld-uClibc.so.0
+│   ├── libbigballofmud.so
+│   ├── libbigballofmud.so.0 -> libbigballofmud.so
+│   ├── libcrypt.so.0
+│   ├── libc.so.0
+│   ├── libdl.so.0
+│   ├── libgcc_s.so.1
+│   ├── libm.so.0
+│   ├── libnsl.so.0
+│   ├── libpthread.so.0
+│   ├── libresolv.so.0
+│   └── modules
+│       └── 2.6.22
+│           ├── build -> /dev/null
+│           ├── kernel
+│           │   ├── drivers
+│           │   │   ├── connector
+│           │   │   │   └── cn.ko
+│           │   │   ├── net
+│           │   │   │   ├── ctbootnv
+│           │   │   │   │   └── ctbootnv.ko
+│           │   │   │   ├── ctf
+│           │   │   │   │   └── ctf.ko
+│           │   │   │   ├── ctmisc
+│           │   │   │   │   └── ctmisc.ko
+│           │   │   │   ├── dnshook
+│           │   │   │   │   └── dnshook.ko
+│           │   │   │   ├── emf
+│           │   │   │   │   └── emf.ko
+│           │   │   │   ├── et
+│           │   │   │   │   └── et.ko
+│           │   │   │   ├── igs
+│           │   │   │   │   └── igs.ko
+│           │   │   │   └── wl
+│           │   │   │       └── wl.ko
+│           │   │   ├── scsi
+│           │   │   │   └── scsi_wait_scan.ko
+│           │   │   └── usb
+│           │   │       └── storage
+│           │   │           └── usb-storage.ko
+│           │   ├── fs
+│           │   │   └── ntfs
+│           │   │       └── ntfs.ko
+│           │   ├── lib
+│           │   │   └── libcrc32c.ko
+│           │   └── net
+│           │       ├── ipv4
+│           │       │   ├── netfilter
+│           │       │   │   └── nf_nat_sip.ko
+│           │       │   └── tunnel4.ko
+│           │       ├── ipv6
+│           │       │   ├── ip6_tunnel.ko
+│           │       │   ├── netfilter
+│           │       │   │   ├── ip6t_frag.ko
+│           │       │   │   ├── ip6t_ipv6header.ko
+│           │       │   │   └── ip6t_ipv6range.ko
+│           │       │   ├── sit.ko
+│           │       │   └── tunnel6.ko
+│           │       └── netfilter
+│           │           └── nf_conntrack_sip.ko
+│           └── source -> /dev/null
+├── media -> tmp/media
+├── mnt
+├── proc
+├── pwnable
+│   ├── Intro
+│   │   ├── heap_overflow_01
+│   │   ├── README
+│   │   ├── stack_bof_01
+│   │   └── uaf_01
+│   └── ShellCode_Required
+│       ├── README
+│       ├── socket_bof
+│       ├── socket_cmd
+│       └── stack_bof_02
+├── sbin
+│   ├── 6rd_nud
+│   ├── arp -> ../bin/busybox
+│   ├── bootnv -> rc
+│   ├── check_all_led -> rc
+│   ├── check_ps -> rc
+│   ├── check_ses_led -> rc
+│   ├── check_wps_led -> rc
+│   ├── chkntfs
+│   ├── ddns_checkip -> rc
+│   ├── ddns_error -> rc
+│   ├── ddns_success -> rc
+│   ├── detectwan -> rc
+│   ├── dhclient -> rc
+│   ├── diag_pingbutton
+│   ├── diag_tracertbutton
+│   ├── diagwpsbutton
+│   ├── disconnected_pppoe -> rc
+│   ├── diskerror -> rc
+│   ├── dosfsck
+│   ├── erase -> rc
+│   ├── fdisk -> ../bin/busybox
+│   ├── filter -> rc
+│   ├── filtersync -> rc
+│   ├── fsck.minix -> ../bin/busybox
+│   ├── fsck.msdos -> dosfsck
+│   ├── fsck.vfat -> dosfsck
+│   ├── fsutil
+│   ├── generate_md5sum -> rc
+│   ├── getreg -> rc
+│   ├── getty -> ../bin/busybox
+│   ├── gpio_check -> rc
+│   ├── halt -> ../bin/busybox
+│   ├── hb_connect -> rc
+│   ├── hb_disconnect -> rc
+│   ├── hotdiskadd -> rc
+│   ├── hotdiskremove -> rc
+│   ├── hotplug -> rc
+│   ├── hotplug_2 -> rc
+│   ├── hotplug2
+│   ├── ifconfig -> ../bin/busybox
+│   ├── init -> rc
+│   ├── insmod -> ../bin/busybox
+│   ├── ipupdated -> rc
+│   ├── klogd -> ../bin/busybox
+│   ├── listen -> rc
+│   ├── logread -> ../bin/busybox
+│   ├── lsmod -> ../bin/busybox
+│   ├── misc -> rc
+│   ├── mkdosfs
+│   ├── mkfs.minix -> ../bin/busybox
+│   ├── mkfs.msdos -> mkdosfs
+│   ├── mkfs.vfat -> mkdosfs
+│   ├── monitor_cable
+│   ├── monitor_disk
+│   ├── ntpd -> rc
+│   ├── pivot_root -> ../bin/busybox
+│   ├── power_led
+│   ├── poweroff -> ../bin/busybox
+│   ├── ppp_event -> rc
+│   ├── preinit -> rc
+│   ├── process_monitor -> rc
+│   ├── purgeshare -> rc
+│   ├── qos -> rc
+│   ├── qos_bw_detect
+│   ├── rc
+│   ├── reboot -> ../bin/busybox
+│   ├── redial -> rc
+│   ├── resetbutton -> rc
+│   ├── restore -> rc
+│   ├── rmmod -> ../bin/busybox
+│   ├── route -> ../bin/busybox
+│   ├── sendudp -> rc
+│   ├── ses_led -> rc
+│   ├── setreg -> rc
+│   ├── stats -> rc
+│   ├── store_domain_sid
+│   ├── store_machine_password
+│   ├── sulogin -> ../bin/busybox
+│   ├── swapoff -> ../bin/busybox
+│   ├── swapon -> ../bin/busybox
+│   ├── sysctl -> ../bin/busybox
+│   ├── syslogd -> ../bin/busybox
+│   ├── tmpgroupadd
+│   ├── tmpgroupdel
+│   ├── tmpuseradd
+│   ├── tmpuseraddgroup
+│   ├── tmpuserdel
+│   ├── tmpuserdelgroup
+│   ├── tmpusersetgroup
+│   ├── udevtrigger
+│   ├── user_note
+│   ├── wan_auto_detect
+│   ├── waninfo -> rc
+│   ├── wl_iocmd
+│   └── write -> rc
+├── sys
+├── tmp
+├── usr
+│   ├── bin
+│   │   ├── [ -> ../../bin/busybox
+│   │   ├── [[ -> ../../bin/busybox
+│   │   ├── basename -> ../../bin/busybox
+│   │   ├── clear -> ../../bin/busybox
+│   │   ├── cut -> ../../bin/busybox
+│   │   ├── dirname -> ../../bin/busybox
+│   │   ├── du -> ../../bin/busybox
+│   │   ├── env -> ../../bin/busybox
+│   │   ├── expr -> ../../bin/busybox
+│   │   ├── find -> ../../bin/busybox
+│   │   ├── free -> ../../bin/busybox
+│   │   ├── head -> ../../bin/busybox
+│   │   ├── hostid -> ../../bin/busybox
+│   │   ├── id -> ../../bin/busybox
+│   │   ├── killall -> ../../bin/busybox
+│   │   ├── less -> ../../bin/busybox
+│   │   ├── logger -> ../../bin/busybox
+│   │   ├── mkfifo -> ../../bin/busybox
+│   │   ├── passwd -> ../../bin/busybox
+│   │   ├── printf -> ../../bin/busybox
+│   │   ├── reset -> ../../bin/busybox
+│   │   ├── selfsign
+│   │   ├── tail -> ../../bin/busybox
+│   │   ├── telnet -> ../../bin/busybox
+│   │   ├── test -> ../../bin/busybox
+│   │   ├── top -> ../../bin/busybox
+│   │   ├── uptime -> ../../bin/busybox
+│   │   ├── wget -> ../../bin/busybox
+│   │   ├── xargs -> ../../bin/busybox
+│   │   └── yes -> ../../bin/busybox
+│   ├── lib
+│   │   ├── iptables
+│   │   │   ├── libip6t_ah.so
+│   │   │   ├── libip6t_dst.so
+│   │   │   ├── libip6t_eui64.so
+│   │   │   ├── libip6t_frag.so
+│   │   │   ├── libip6t_hbh.so
+│   │   │   ├── libip6t_hl.so
+│   │   │   ├── libip6t_HL.so
+│   │   │   ├── libip6t_icmp6.so
+│   │   │   ├── libip6t_ipv6header.so
+│   │   │   ├── libip6t_LOG.so
+│   │   │   ├── libip6t_mh.so
+│   │   │   ├── libip6t_policy.so
+│   │   │   ├── libip6t_REJECT.so
+│   │   │   ├── libip6t_rt.so
+│   │   │   ├── libip6t_webstr.so
+│   │   │   ├── libipt_addrtype.so
+│   │   │   ├── libipt_ah.so
+│   │   │   ├── libipt_CLUSTERIP.so
+│   │   │   ├── libipt_DNAT.so
+│   │   │   ├── libipt_ecn.so
+│   │   │   ├── libipt_ECN.so
+│   │   │   ├── libipt_icmp.so
+│   │   │   ├── libipt_LOG.so
+│   │   │   ├── libipt_MASQUERADE.so
+│   │   │   ├── libipt_MIRROR.so
+│   │   │   ├── libipt_NETMAP.so
+│   │   │   ├── libipt_policy.so
+│   │   │   ├── libipt_realm.so
+│   │   │   ├── libipt_recent.so
+│   │   │   ├── libipt_REDIRECT.so
+│   │   │   ├── libipt_REJECT.so
+│   │   │   ├── libipt_SAME.so
+│   │   │   ├── libipt_set.so
+│   │   │   ├── libipt_SET.so
+│   │   │   ├── libipt_SNAT.so
+│   │   │   ├── libipt_TRIGGER.so
+│   │   │   ├── libipt_ttl.so
+│   │   │   ├── libipt_TTL.so
+│   │   │   ├── libipt_ULOG.so
+│   │   │   ├── libipt_unclean.so
+│   │   │   ├── libipt_webstr.so
+│   │   │   ├── libxt_CLASSIFY.so
+│   │   │   ├── libxt_comment.so
+│   │   │   ├── libxt_connbytes.so
+│   │   │   ├── libxt_connlimit.so
+│   │   │   ├── libxt_connmark.so
+│   │   │   ├── libxt_CONNMARK.so
+│   │   │   ├── libxt_CONNSECMARK.so
+│   │   │   ├── libxt_conntrack.so
+│   │   │   ├── libxt_dccp.so
+│   │   │   ├── libxt_dscp.so
+│   │   │   ├── libxt_DSCP.so
+│   │   │   ├── libxt_esp.so
+│   │   │   ├── libxt_hashlimit.so
+│   │   │   ├── libxt_helper.so
+│   │   │   ├── libxt_iprange.so
+│   │   │   ├── libxt_layer7.so
+│   │   │   ├── libxt_length.so
+│   │   │   ├── libxt_limit.so
+│   │   │   ├── libxt_mac.so
+│   │   │   ├── libxt_mark.so
+│   │   │   ├── libxt_MARK.so
+│   │   │   ├── libxt_multiport.so
+│   │   │   ├── libxt_NFLOG.so
+│   │   │   ├── libxt_NFQUEUE.so
+│   │   │   ├── libxt_NOTRACK.so
+│   │   │   ├── libxt_owner.so
+│   │   │   ├── libxt_physdev.so
+│   │   │   ├── libxt_pkttype.so
+│   │   │   ├── libxt_quota.so
+│   │   │   ├── libxt_rateest.so
+│   │   │   ├── libxt_RATEEST.so
+│   │   │   ├── libxt_sctp.so
+│   │   │   ├── libxt_SECMARK.so
+│   │   │   ├── libxt_standard.so
+│   │   │   ├── libxt_state.so
+│   │   │   ├── libxt_statistic.so
+│   │   │   ├── libxt_string.so
+│   │   │   ├── libxt_tcpmss.so
+│   │   │   ├── libxt_TCPMSS.so
+│   │   │   ├── libxt_TCPOPTSTRIP.so
+│   │   │   ├── libxt_tcp.so
+│   │   │   ├── libxt_time.so
+│   │   │   ├── libxt_tos.so
+│   │   │   ├── libxt_TOS.so
+│   │   │   ├── libxt_TRACE.so
+│   │   │   ├── libxt_u32.so
+│   │   │   └── libxt_udp.so
+│   │   ├── l2tp
+│   │   │   ├── cmd.so
+│   │   │   └── sync-pppd.so
+│   │   ├── libbcmcrypto.so
+│   │   ├── libdhcpctl.so
+│   │   ├── libdhcp.so
+│   │   ├── libdst.so
+│   │   ├── libexpat.so
+│   │   ├── libnetconf.so
+│   │   ├── libnvram.so
+│   │   ├── libomapi.so
+│   │   ├── libpolarssl.so
+│   │   ├── libpopt.so
+│   │   ├── libres.so
+│   │   ├── libshared.so
+│   │   └── libzebra.so
+│   ├── local
+│   │   └── samba
+│   │       ├── bin
+│   │       │   ├── smbadduser
+│   │       │   └── smbpasswd
+│   │       ├── lib
+│   │       │   └── smb.conf -> /dev/null
+│   │       ├── private -> /dev/null
+│   │       ├── sbin
+│   │       │   ├── nmbd
+│   │       │   └── smbd
+│   │       ├── share
+│   │       │   └── man
+│   │       └── var
+│   │           └── locks -> /dev/null
+│   ├── sbin
+│   │   ├── arp
+│   │   ├── bpalogin
+│   │   ├── brctl
+│   │   ├── cesmDNS
+│   │   ├── check_http.sh
+│   │   ├── cron
+│   │   ├── dhclient
+│   │   ├── dhcpd
+│   │   ├── disconnect_disk
+│   │   ├── disktestwait
+│   │   ├── dnsmasq
+│   │   ├── ez-ipupdate
+│   │   ├── generate_pin
+│   │   ├── generate_ula
+│   │   ├── httpd
+│   │   ├── igmprt
+│   │   ├── igmpxmld
+│   │   ├── ip
+│   │   ├── ip6tables
+│   │   ├── ip6tables-restore
+│   │   ├── iptables
+│   │   ├── iptables-restore
+│   │   ├── l2tp-control
+│   │   ├── l2tpd
+│   │   ├── lld2d
+│   │   ├── nas
+│   │   ├── nas4not -> nas
+│   │   ├── nlinkd
+│   │   ├── ntpclient
+│   │   ├── nvram
+│   │   ├── ping6
+│   │   ├── pppd
+│   │   ├── pppoecd
+│   │   ├── pptp
+│   │   ├── radvd
+│   │   ├── rdate -> ../../bin/busybox
+│   │   ├── respart
+│   │   ├── ripd
+│   │   ├── rotatelog.sh
+│   │   ├── tc
+│   │   ├── telnetd -> ../../bin/busybox
+│   │   ├── tftpd
+│   │   ├── tracepath6
+│   │   ├── traceroute
+│   │   ├── traceroute6
+│   │   ├── tzoupdate-1.11
+│   │   ├── vconfig
+│   │   └── zebra
+│   └── tmp -> ../tmp
+├── var -> tmp/var
+└── www
+    └── index.asp
+
+56 directories, 391 files
