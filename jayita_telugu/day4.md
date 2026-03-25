@@ -1,3 +1,5 @@
+[filesystem-tree.txt](https://github.com/user-attachments/files/26238800/filesystem-tree.txt)
+
 ## IoT Router Firmware Vulnerability Analysis
 
 I analyzed the extracted filesystem of an IoT router firmware to identify high-risk areas that are most likely to contain vulnerabilities. Based on the structure and components present, the firmware exposes multiple attack surfaces typical of embedded Linux devices.
