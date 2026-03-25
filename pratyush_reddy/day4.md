@@ -1,4 +1,4 @@
-# 📅 Day 4 — Firmware Extraction with Binwalk (Deep Dive)
+# Day 4 — Firmware Extraction with Binwalk (Deep Dive)
 
 ## 🎯 Objective
 
@@ -238,6 +238,7 @@ This lab demonstrated how firmware can be extracted and analyzed to reveal inter
 > Firmware analysis allows attackers to identify vulnerabilities offline, including weak authentication, hidden services, and insecure design.
 
 ---
+<img width="1366" height="643" alt="Screenshot_2026-03-25_15_33_53" src="https://github.com/user-attachments/assets/4524625b-1901-45b8-991c-e0bd90458103" />
 
 
 
