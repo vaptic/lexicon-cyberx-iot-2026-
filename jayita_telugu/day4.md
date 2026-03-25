@@ -242,12 +242,3 @@ The most critical entry point is the **web interface**, followed by **network se
 - ChatGPT (AI filesystem analysis)
 
 ---
-
-## 📁 Files in this Commit
-- `day4.md` — this file
-- `filesystem-tree.txt` — complete file listing of squashfs-root
-- Screenshots of key steps
-
----
-
-*Day 4 complete. Tomorrow we start actually exploiting these binaries. 🔓*
