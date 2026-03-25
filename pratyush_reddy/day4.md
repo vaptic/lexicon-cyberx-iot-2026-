@@ -23,6 +23,7 @@ Binwalk is a firmware analysis tool used to:
 * Kali Linux VM
 * Binwalk
 * DVRF_v03.bin firmware
+* chat GPT
 
 ---
 
