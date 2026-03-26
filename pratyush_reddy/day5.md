@@ -208,17 +208,6 @@ From `ShellCode_Required/README`:
 
 ---
 
-## 🤖 AI Risk Analysis
-
-*(To be completed — ask Gemini: "I found hardcoded NVRAM password keys (ppp_passwd, wl0_passphrase) and a binary that passes passwords as CLI arguments in IoT router firmware. How could an attacker use this to compromise the device? What is the CVE category for this type of vulnerability?")*
-
-Key questions to ask:
-1. **Finding 2 (smbadduser):** "I found a shell script that passes user passwords as a plaintext command-line argument to smbpasswd on an IoT router. How could an attacker exploit this?"
-2. **Finding 7 (httpd):** "I found the string `pool_encryption_password_is_recoverable` in a router's web server binary. What does this imply about how passwords are stored?"
-3. **Finding 10 (socket_cmd):** "I found a binary on an IoT router that passes network socket input directly to System() on MIPS32. What is the CVE category and how would an attacker exploit this remotely?"
-
----
-
 ## 🛠 Tools Used
 
 | Tool | Purpose |
@@ -226,7 +215,7 @@ Key questions to ask:
 | `strings` | Extract readable ASCII strings from binaries |
 | `grep -i` | Case-insensitive pattern matching for credential keywords |
 | `cat` | Read shell scripts and config files |
-| `head -20 / -30` | Limit output to manageable size |
+| `claude AI assistant` | Help with lab |
 | Kali Linux VM | Analysis environment |
 
 ---
@@ -241,14 +230,3 @@ Key questions to ask:
 
 ---
 
-## ✅ Day 5 Checklist Status
-
-| Done | Task |
-|------|------|
-| ✅ | Theory — hardcoded creds and Mirai botnet case study |
-| ✅ | Manual grep/strings searches for passwords, keys, IPs |
-| ✅ | Analysed `/etc/passwd` and `/etc/shadow` (found empty — adapted approach) |
-| ✅ | Binary analysis of smbpasswd, httpd, libnvram.so, sbin utilities |
-| ✅ | All findings documented with file paths and risk explanations |
-| ⬜ | AI risk analysis task (Gemini) |
-| ⬜ | Push findings report to GitHub |
