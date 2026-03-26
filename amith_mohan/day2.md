@@ -1,6 +1,6 @@
 # Day 2 —
 Firmware Analysis: IoTGoat  
-**Date:** 2026-03-23  
+  
 
 ---
 
