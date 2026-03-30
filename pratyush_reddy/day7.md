@@ -16,7 +16,7 @@ no pre-split kernel/rootfs).
 - Architecture confirmed: MIPS
 - Found pwnable challenges: /pwnable/Intro, /pwnable/ShellCode_Required
 
-
+https://github.com/vaptic/lexicon-cyberx-iot-2026-/blob/main/pratyush_reddy/start_dvrf_qemu.sh
 
 ## Screenshot
 <img width="1366" height="720" alt="Screenshot 2026-03-30 121641" src="https://github.com/user-attachments/assets/f0d93b06-cd65-4dc5-8e1b-9c27e46b7b84" />
