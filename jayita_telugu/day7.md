@@ -62,3 +62,4 @@ Created: `~/scripts/start-dvrf-qemu.sh`
 - Made executable with chmod +x
 
    <img width="807" height="315" alt="Screenshot 2026-03-30 133125" src="https://github.com/user-attachments/assets/7e9aeb86-a445-4c52-9331-f4eed2cb9275" />
+<img width="582" height="440" alt="Screenshot 2026-03-30 140413" src="https://github.com/user-attachments/assets/9bcf952a-abf4-4f1b-90f3-4b52d0074a3e" />
