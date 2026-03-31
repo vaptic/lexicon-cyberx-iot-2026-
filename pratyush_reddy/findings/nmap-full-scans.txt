@@ -1,0 +1,80 @@
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-03-31 12:36 IST
+Nmap scan report for 192.168.56.101
+Host is up (0.00098s latency).
+
+PORT     STATE SERVICE                  VERSION
+22/tcp   open  ssh                      OpenSSH 9.6p1 Ubuntu 3ubuntu13.15 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 1b:51:bf:3e:95:33:0b:15:92:2f:a8:3b:a7:4a:2b:68 (ECDSA)
+|_  256 a4:85:25:8c:a4:06:47:1e:ca:d0:e5:c4:fa:4a:a0:52 (ED25519)
+1883/tcp open  mosquitto version 2.0.18
+| mqtt-subscribe: 
+|   Topics and their most recent payloads: 
+|     $SYS/broker/publish/bytes/received: 0
+|     $SYS/broker/load/messages/sent/15min: 7.04
+|     $SYS/broker/load/publish/sent/5min: 17.05
+|     $SYS/broker/load/messages/received/1min: 2.93
+|     $SYS/broker/load/publish/dropped/5min: 0.00
+|     $SYS/broker/clients/disconnected: 1
+|     $SYS/broker/publish/messages/sent: 137
+|     $SYS/broker/subscriptions/count: 4
+|     $SYS/broker/load/connections/5min: 0.61
+|     $SYS/broker/load/publish/sent/1min: 55.48
+|     $SYS/broker/clients/inactive: 1
+|     $SYS/broker/load/publish/dropped/15min: 0.00
+|     $SYS/broker/load/publish/received/1min: 0.00
+|     $SYS/broker/messages/stored: 53
+|     $SYS/broker/clients/active: 1
+|     $SYS/broker/bytes/sent: 5525
+|     $SYS/broker/load/connections/1min: 1.92
+|     $SYS/broker/version: mosquitto version 2.0.18
+|     $SYS/broker/uptime: 287 seconds
+|     $SYS/broker/store/messages/count: 53
+|     $SYS/broker/messages/sent: 142
+|     $SYS/broker/store/messages/bytes: 201
+|     $SYS/broker/shared_subscriptions/count: 0
+|     $SYS/broker/clients/connected: 1
+|     $SYS/broker/load/messages/received/5min: 1.02
+|     $SYS/broker/publish/messages/received: 0
+|     $SYS/broker/load/connections/15min: 0.24
+|     $SYS/broker/messages/received: 7
+|     $SYS/broker/heap/current: 47472
+|     $SYS/broker/load/bytes/sent/1min: 2176.67
+|     $SYS/broker/load/bytes/sent/15min: 263.30
+|     $SYS/broker/heap/maximum: 49248
+|     $SYS/broker/load/publish/received/15min: 0.00
+|     $SYS/broker/publish/messages/dropped: 0
+|     $SYS/broker/publish/bytes/sent: 514
+|     $SYS/broker/load/sockets/5min: 0.61
+|     $SYS/broker/load/sockets/1min: 1.92
+|     $SYS/broker/load/sockets/15min: 0.24
+|     $SYS/broker/load/publish/sent/15min: 6.67
+|     $SYS/broker/load/bytes/received/5min: 21.28
+|     $SYS/broker/bytes/received: 140
+|     $SYS/broker/load/messages/sent/1min: 58.37
+|     $SYS/broker/clients/total: 2
+|     $SYS/broker/load/messages/sent/5min: 17.97
+|     $SYS/broker/load/bytes/received/1min: 66.44
+|     $SYS/broker/clients/expired: 0
+|     $SYS/broker/retained messages/count: 53
+|     $SYS/broker/load/bytes/received/15min: 8.44
+|     $SYS/broker/load/bytes/sent/5min: 671.79
+|     $SYS/broker/clients/maximum: 2
+|     $SYS/broker/load/publish/dropped/1min: 0.00
+|     $SYS/broker/load/messages/received/15min: 0.42
+|_    $SYS/broker/load/publish/received/5min: 0.00
+MAC Address: 08:00:27:29:9B:3F (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.19, OpenWrt 21.02 (Linux 5.4)
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.98 ms 192.168.56.101
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 30.11 seconds

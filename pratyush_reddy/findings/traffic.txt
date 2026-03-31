@@ -1,0 +1,395 @@
+No.     Time           Source                Destination           Protocol Length Info
+      1 0.000000000    192.168.56.102        192.168.56.101        TCP      74     41558 → 1883 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM TSval=404758654 TSecr=0 WS=512
+
+Frame 1: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 41558, Dst Port: 1883, Seq: 0, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+      2 0.002540628    192.168.56.101        192.168.56.102        TCP      74     1883 → 41558 [SYN, ACK] Seq=0 Ack=1 Win=65160 Len=0 MSS=1460 SACK_PERM TSval=3694578096 TSecr=404758654 WS=128
+
+Frame 2: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 41558, Seq: 0, Ack: 1, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+      3 0.002756408    192.168.56.102        192.168.56.101        TCP      66     41558 → 1883 [ACK] Seq=1 Ack=1 Win=64512 Len=0 TSval=404758657 TSecr=3694578096
+
+Frame 3: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 41558, Dst Port: 1883, Seq: 1, Ack: 1, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+      4 0.003107814    192.168.56.102        192.168.56.101        MQTT     80     Connect Command
+
+Frame 4: Packet, 80 bytes on wire (640 bits), 80 bytes captured (640 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 41558, Dst Port: 1883, Seq: 1, Ack: 1, Len: 14
+MQ Telemetry Transport Protocol, Connect Command
+    Header Flags: 0x10, Message Type: Connect Command
+    Msg Len: 12
+    Protocol Name Length: 4
+    Protocol Name: MQTT
+    Version: MQTT v3.1.1 (4)
+    Connect Flags: 0x02, QoS Level: At most once delivery (Fire and Forget), Clean Session Flag
+    Keep Alive: 60
+    Client ID Length: 0
+    Client ID: 
+
+No.     Time           Source                Destination           Protocol Length Info
+      5 0.005500097    192.168.56.101        192.168.56.102        TCP      66     1883 → 41558 [ACK] Seq=1 Ack=15 Win=65152 Len=0 TSval=3694578099 TSecr=404758657
+
+Frame 5: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 41558, Seq: 1, Ack: 15, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+      6 0.006124714    192.168.56.101        192.168.56.102        MQTT     70     Connect Ack
+
+Frame 6: Packet, 70 bytes on wire (560 bits), 70 bytes captured (560 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 41558, Seq: 1, Ack: 15, Len: 4
+MQ Telemetry Transport Protocol, Connect Ack
+    Header Flags: 0x20, Message Type: Connect Ack
+    Msg Len: 2
+    Acknowledge Flags: 0x00
+    Return Code: Connection Accepted (0)
+
+No.     Time           Source                Destination           Protocol Length Info
+      7 0.006187868    192.168.56.102        192.168.56.101        TCP      66     41558 → 1883 [ACK] Seq=15 Ack=5 Win=64512 Len=0 TSval=404758661 TSecr=3694578099
+
+Frame 7: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 41558, Dst Port: 1883, Seq: 15, Ack: 5, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+      8 0.006355919    192.168.56.102        192.168.56.101        MQTT     91     Publish Message [home/bedroom/temp]
+
+Frame 8: Packet, 91 bytes on wire (728 bits), 91 bytes captured (728 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 41558, Dst Port: 1883, Seq: 15, Ack: 5, Len: 25
+MQ Telemetry Transport Protocol, Publish Message
+    Header Flags: 0x30, Message Type: Publish Message, QoS Level: At most once delivery (Fire and Forget)
+    Msg Len: 23
+    Topic Length: 17
+    Topic: home/bedroom/temp
+    Message: 32342e35
+
+No.     Time           Source                Destination           Protocol Length Info
+      9 0.006429844    192.168.56.102        192.168.56.101        MQTT     68     Disconnect Req
+
+Frame 9: Packet, 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 41558, Dst Port: 1883, Seq: 40, Ack: 5, Len: 2
+MQ Telemetry Transport Protocol, Disconnect Req
+    Header Flags: 0xe0, Message Type: Disconnect Req
+    Msg Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     10 0.007358983    192.168.56.101        192.168.56.102        TCP      66     1883 → 41558 [ACK] Seq=5 Ack=43 Win=65152 Len=0 TSval=3694578101 TSecr=404758661
+
+Frame 10: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 41558, Seq: 5, Ack: 43, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     11 0.007359174    192.168.56.101        192.168.56.102        TCP      66     1883 → 41558 [FIN, ACK] Seq=5 Ack=43 Win=65152 Len=0 TSval=3694578101 TSecr=404758661
+
+Frame 11: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 41558, Seq: 5, Ack: 43, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     12 0.007395002    192.168.56.102        192.168.56.101        TCP      66     41558 → 1883 [ACK] Seq=43 Ack=6 Win=64512 Len=0 TSval=404758662 TSecr=3694578101
+
+Frame 12: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 41558, Dst Port: 1883, Seq: 43, Ack: 6, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     13 5.052832169    PCSSystemtec_ed:a7:0e PCSSystemtec_29:9b:3f ARP      42     Who has 192.168.56.101? Tell 192.168.56.102
+
+Frame 13: Packet, 42 bytes on wire (336 bits), 42 bytes captured (336 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Address Resolution Protocol (request)
+
+No.     Time           Source                Destination           Protocol Length Info
+     14 5.054286830    PCSSystemtec_29:9b:3f PCSSystemtec_ed:a7:0e ARP      60     192.168.56.101 is at 08:00:27:29:9b:3f
+
+Frame 14: Packet, 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Address Resolution Protocol (reply)
+
+No.     Time           Source                Destination           Protocol Length Info
+     15 5.136818063    PCSSystemtec_29:9b:3f PCSSystemtec_ed:a7:0e ARP      60     Who has 192.168.56.102? Tell 192.168.56.101
+
+Frame 15: Packet, 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Address Resolution Protocol (request)
+
+No.     Time           Source                Destination           Protocol Length Info
+     16 5.136833138    PCSSystemtec_ed:a7:0e PCSSystemtec_29:9b:3f ARP      42     192.168.56.102 is at 08:00:27:ed:a7:0e
+
+Frame 16: Packet, 42 bytes on wire (336 bits), 42 bytes captured (336 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Address Resolution Protocol (reply)
+
+No.     Time           Source                Destination           Protocol Length Info
+     17 23.258632710   192.168.56.102        192.168.56.101        TCP      74     57782 → 1883 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM TSval=404781913 TSecr=0 WS=512
+
+Frame 17: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 57782, Dst Port: 1883, Seq: 0, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     18 23.260521875   192.168.56.101        192.168.56.102        TCP      74     1883 → 57782 [SYN, ACK] Seq=0 Ack=1 Win=65160 Len=0 MSS=1460 SACK_PERM TSval=3694601342 TSecr=404781913 WS=128
+
+Frame 18: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 57782, Seq: 0, Ack: 1, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     19 23.260603802   192.168.56.102        192.168.56.101        TCP      66     57782 → 1883 [ACK] Seq=1 Ack=1 Win=64512 Len=0 TSval=404781915 TSecr=3694601342
+
+Frame 19: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 57782, Dst Port: 1883, Seq: 1, Ack: 1, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     20 23.260809631   192.168.56.102        192.168.56.101        MQTT     80     Connect Command
+
+Frame 20: Packet, 80 bytes on wire (640 bits), 80 bytes captured (640 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 57782, Dst Port: 1883, Seq: 1, Ack: 1, Len: 14
+MQ Telemetry Transport Protocol, Connect Command
+    Header Flags: 0x10, Message Type: Connect Command
+    Msg Len: 12
+    Protocol Name Length: 4
+    Protocol Name: MQTT
+    Version: MQTT v3.1.1 (4)
+    Connect Flags: 0x02, QoS Level: At most once delivery (Fire and Forget), Clean Session Flag
+    Keep Alive: 60
+    Client ID Length: 0
+    Client ID: 
+
+No.     Time           Source                Destination           Protocol Length Info
+     21 23.261482496   192.168.56.101        192.168.56.102        TCP      66     1883 → 57782 [ACK] Seq=1 Ack=15 Win=65152 Len=0 TSval=3694601343 TSecr=404781915
+
+Frame 21: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 57782, Seq: 1, Ack: 15, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     22 23.261811572   192.168.56.101        192.168.56.102        MQTT     70     Connect Ack
+
+Frame 22: Packet, 70 bytes on wire (560 bits), 70 bytes captured (560 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 57782, Seq: 1, Ack: 15, Len: 4
+MQ Telemetry Transport Protocol, Connect Ack
+    Header Flags: 0x20, Message Type: Connect Ack
+    Msg Len: 2
+    Acknowledge Flags: 0x00
+    Return Code: Connection Accepted (0)
+
+No.     Time           Source                Destination           Protocol Length Info
+     23 23.261870298   192.168.56.102        192.168.56.101        TCP      66     57782 → 1883 [ACK] Seq=15 Ack=5 Win=64512 Len=0 TSval=404781916 TSecr=3694601343
+
+Frame 23: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 57782, Dst Port: 1883, Seq: 15, Ack: 5, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     24 23.262081656   192.168.56.102        192.168.56.101        MQTT     94     Publish Message [home/lock/status]
+
+Frame 24: Packet, 94 bytes on wire (752 bits), 94 bytes captured (752 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 57782, Dst Port: 1883, Seq: 15, Ack: 5, Len: 28
+MQ Telemetry Transport Protocol, Publish Message
+    Header Flags: 0x30, Message Type: Publish Message, QoS Level: At most once delivery (Fire and Forget)
+    Msg Len: 26
+    Topic Length: 16
+    Topic: home/lock/status
+    Message: 554e4c4f434b4544
+
+No.     Time           Source                Destination           Protocol Length Info
+     25 23.262165765   192.168.56.102        192.168.56.101        MQTT     68     Disconnect Req
+
+Frame 25: Packet, 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 57782, Dst Port: 1883, Seq: 43, Ack: 5, Len: 2
+MQ Telemetry Transport Protocol, Disconnect Req
+    Header Flags: 0xe0, Message Type: Disconnect Req
+    Msg Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     26 23.263096943   192.168.56.101        192.168.56.102        TCP      66     1883 → 57782 [ACK] Seq=5 Ack=46 Win=65152 Len=0 TSval=3694601345 TSecr=404781916
+
+Frame 26: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 57782, Seq: 5, Ack: 46, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     27 23.263097134   192.168.56.101        192.168.56.102        TCP      66     1883 → 57782 [FIN, ACK] Seq=5 Ack=46 Win=65152 Len=0 TSval=3694601345 TSecr=404781916
+
+Frame 27: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 57782, Seq: 5, Ack: 46, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     28 23.263124969   192.168.56.102        192.168.56.101        TCP      66     57782 → 1883 [ACK] Seq=46 Ack=6 Win=64512 Len=0 TSval=404781917 TSecr=3694601345
+
+Frame 28: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 57782, Dst Port: 1883, Seq: 46, Ack: 6, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     29 28.882810207   fe80::a00:27ff:feed:a70e ff02::2               ICMPv6   62     Router Solicitation
+
+Frame 29: Packet, 62 bytes on wire (496 bits), 62 bytes captured (496 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: IPv6mcast_02 (33:33:00:00:00:02)
+Internet Protocol Version 6, Src: fe80::a00:27ff:feed:a70e, Dst: ff02::2
+Internet Control Message Protocol v6
+
+No.     Time           Source                Destination           Protocol Length Info
+     30 60.629781689   192.168.56.102        192.168.56.101        TCP      74     44018 → 1883 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM TSval=404819284 TSecr=0 WS=512
+
+Frame 30: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 44018, Dst Port: 1883, Seq: 0, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     31 60.631099988   192.168.56.101        192.168.56.102        TCP      74     1883 → 44018 [SYN, ACK] Seq=0 Ack=1 Win=65160 Len=0 MSS=1460 SACK_PERM TSval=3694638694 TSecr=404819284 WS=128
+
+Frame 31: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 44018, Seq: 0, Ack: 1, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     32 60.631160253   192.168.56.102        192.168.56.101        TCP      66     44018 → 1883 [ACK] Seq=1 Ack=1 Win=64512 Len=0 TSval=404819285 TSecr=3694638694
+
+Frame 32: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 44018, Dst Port: 1883, Seq: 1, Ack: 1, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     33 60.631313884   192.168.56.102        192.168.56.101        MQTT     80     Connect Command
+
+Frame 33: Packet, 80 bytes on wire (640 bits), 80 bytes captured (640 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 44018, Dst Port: 1883, Seq: 1, Ack: 1, Len: 14
+MQ Telemetry Transport Protocol, Connect Command
+    Header Flags: 0x10, Message Type: Connect Command
+    Msg Len: 12
+    Protocol Name Length: 4
+    Protocol Name: MQTT
+    Version: MQTT v3.1.1 (4)
+    Connect Flags: 0x02, QoS Level: At most once delivery (Fire and Forget), Clean Session Flag
+    Keep Alive: 60
+    Client ID Length: 0
+    Client ID: 
+
+No.     Time           Source                Destination           Protocol Length Info
+     34 60.631879753   192.168.56.101        192.168.56.102        TCP      66     1883 → 44018 [ACK] Seq=1 Ack=15 Win=65152 Len=0 TSval=3694638695 TSecr=404819286
+
+Frame 34: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 44018, Seq: 1, Ack: 15, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     35 60.632415511   192.168.56.101        192.168.56.102        MQTT     70     Connect Ack
+
+Frame 35: Packet, 70 bytes on wire (560 bits), 70 bytes captured (560 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 44018, Seq: 1, Ack: 15, Len: 4
+MQ Telemetry Transport Protocol, Connect Ack
+    Header Flags: 0x20, Message Type: Connect Ack
+    Msg Len: 2
+    Acknowledge Flags: 0x00
+    Return Code: Connection Accepted (0)
+
+No.     Time           Source                Destination           Protocol Length Info
+     36 60.632649876   192.168.56.102        192.168.56.101        TCP      66     44018 → 1883 [ACK] Seq=15 Ack=5 Win=64512 Len=0 TSval=404819287 TSecr=3694638695
+
+Frame 36: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 44018, Dst Port: 1883, Seq: 15, Ack: 5, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     37 60.632895033   192.168.56.102        192.168.56.101        MQTT     110    Publish Message [home/camera/auth]
+
+Frame 37: Packet, 110 bytes on wire (880 bits), 110 bytes captured (880 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 44018, Dst Port: 1883, Seq: 15, Ack: 5, Len: 44
+MQ Telemetry Transport Protocol, Publish Message
+    Header Flags: 0x30, Message Type: Publish Message, QoS Level: At most once delivery (Fire and Forget)
+    Msg Len: 42
+    Topic Length: 16
+    Topic: home/camera/auth
+    Message: 757365723d61646d696e26706173733d61646d696e313233
+
+No.     Time           Source                Destination           Protocol Length Info
+     38 60.632978896   192.168.56.102        192.168.56.101        MQTT     68     Disconnect Req
+
+Frame 38: Packet, 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 44018, Dst Port: 1883, Seq: 59, Ack: 5, Len: 2
+MQ Telemetry Transport Protocol, Disconnect Req
+    Header Flags: 0xe0, Message Type: Disconnect Req
+    Msg Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     39 60.634857919   192.168.56.101        192.168.56.102        TCP      66     1883 → 44018 [ACK] Seq=5 Ack=62 Win=65152 Len=0 TSval=3694638698 TSecr=404819287
+
+Frame 39: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 44018, Seq: 5, Ack: 62, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     40 60.635555366   192.168.56.101        192.168.56.102        TCP      66     1883 → 44018 [FIN, ACK] Seq=5 Ack=62 Win=65152 Len=0 TSval=3694638698 TSecr=404819287
+
+Frame 40: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f), Dst: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e)
+Internet Protocol Version 4, Src: 192.168.56.101, Dst: 192.168.56.102
+Transmission Control Protocol, Src Port: 1883, Dst Port: 44018, Seq: 5, Ack: 62, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     41 60.635575729   192.168.56.102        192.168.56.101        TCP      66     44018 → 1883 [ACK] Seq=62 Ack=6 Win=64512 Len=0 TSval=404819290 TSecr=3694638698
+
+Frame 41: Packet, 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface eth1, id 0
+Ethernet II, Src: PCSSystemtec_ed:a7:0e (08:00:27:ed:a7:0e), Dst: PCSSystemtec_29:9b:3f (08:00:27:29:9b:3f)
+Internet Protocol Version 4, Src: 192.168.56.102, Dst: 192.168.56.101
+Transmission Control Protocol, Src Port: 44018, Dst Port: 1883, Seq: 62, Ack: 6, Len: 0
