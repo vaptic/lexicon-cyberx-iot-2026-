@@ -1,9 +1,5 @@
 # Day 8 — IoT Traffic Capture & Deep Packet Analysis
 
-**Phase:** Phase 3 — Network Threat Analysis  
-**Date:** 2026-03-31  
-**Ratio:** 30% Theory / 70% Practical
-
 ---
 
 ## Lab Environment
@@ -172,17 +168,7 @@ From **Statistics → Protocol Hierarchy**:
 
 ---
 
-## Expected Outcomes — Completed
-
-- ✅ Wireshark capture showing MQTT credentials in plaintext
-- ✅ TCP stream reconstruction completed
-- ✅ Protocol hierarchy analysis completed (`mqtt` = 30.8% of packets)
-- ✅ Traffic security report written
-
----
-
 ## Files
-
 
 <img width="1366" height="720" alt="Screenshot 2026-03-31 121547" src="https://github.com/user-attachments/assets/89b48c31-92aa-493a-bdaa-0f243a5dc665" />
 <img width="1366" height="720" alt="Screenshot 2026-03-31 121811" src="https://github.com/user-attachments/assets/efaa43cf-725c-4d9e-9885-1e91696d5639" />
