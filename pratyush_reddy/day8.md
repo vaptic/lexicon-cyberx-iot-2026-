@@ -169,7 +169,8 @@ From **Statistics → Protocol Hierarchy**:
 ---
 
 ## Files
-
+https://github.com/vaptic/lexicon-cyberx-iot-2026-/blob/a72809a994923a242301056f1f9798be01d373b7/pratyush_reddy/findings/day8-iot-traffic.pcapng
+https://github.com/vaptic/lexicon-cyberx-iot-2026-/blob/a72809a994923a242301056f1f9798be01d373b7/pratyush_reddy/findings/traffic.txt
 <img width="1366" height="720" alt="Screenshot 2026-03-31 121547" src="https://github.com/user-attachments/assets/89b48c31-92aa-493a-bdaa-0f243a5dc665" />
 <img width="1366" height="720" alt="Screenshot 2026-03-31 121811" src="https://github.com/user-attachments/assets/efaa43cf-725c-4d9e-9885-1e91696d5639" />
 <img width="1366" height="720" alt="Screenshot 2026-03-31 121825" src="https://github.com/user-attachments/assets/04abb116-73a0-41a7-b025-9c0b9073aa50" />
