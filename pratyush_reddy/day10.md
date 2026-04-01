@@ -1,8 +1,5 @@
 # Day 10 — MQTT Broker Attacks: Injection & Fuzzing
 
-**Phase:** Phase 3 — Network Threat Analysis  
-**Ratio:** 30% Theory / 70% Practical
-
 ---
 
 ## 📘 Theory Summary
@@ -21,11 +18,6 @@ In a real smart home, this means an attacker could read door lock status, publis
 ---
 
 ## 🔧 Practical Lab
-
-### Setup
-- **Attacker:** Kali Linux VM
-- **Target:** Ubuntu VM running Mosquitto (IP: `192.168.56.101`)
-- **Tool:** `paho-mqtt` Python library
 
 ### Step 1 — Subscribe to All Topics (Wildcard)
 ```bash
